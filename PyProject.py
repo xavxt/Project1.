@@ -1,4 +1,19 @@
 import scrapy
+import requests
+
+
+url = 'http://www.ite.edu.sg'
+
+r = requests.get(url)
+
+print("Status code:")
+print("\t *", r.status_code)
+h = requests.head(url)
+print("Header:")
+print("**********")
+for x in h.headers:
+    print("\t ", x, ":", h.headers[x])
+print("**********")
 
 
 class NewSpider (scrapy.Spider):
@@ -21,3 +36,5 @@ class NewSpider (scrapy.Spider):
                     response.urljoin(next_page),
                     callback=self.parse
                 )
+
+
