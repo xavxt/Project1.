@@ -17,6 +17,7 @@ print("**********")
 
 
 class NewSpider (scrapy.Spider):
+    file = open("./save.json", mode="w+")
     name = "new_spider"
     start_urls = ['https://www.ite.edu.sg/']
 
